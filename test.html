@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="matching.js"></script>    
+    <script src="transcript.js"></script>
+    <script src="player.js"></script>
+    <script>
+        var id = window.prompt("Enter video link");
+        id = id.split("=")[1];
+            // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #transcript, #wordcount {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+        font-weight: bold;
+        font-family: Tahoma, Geneva, Verdana, sans-serif;
+        opacity: 0.4;
+    }
+
+    #input {
+        text-align: center;
+    }
+
+    input {
+        padding: 10px;
+        margin: 10px;
+        font-size: 20px;
+        width: 80%;
+    }
+
+    button {
+        background-color: white;
+        border: 1px solid gray;
+        padding: 15px;
+    }
+
+    #result {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+        /* font-weight: bold; */
+        font-family: Tahoma, Geneva, Verdana, sans-serif;
+        /* opacity: 0.1; */
+    }
+
+    #err {
+        color: red;
+    }
+
+    #ok {
+        color: green;
+    }
+</style>
+<body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div id="player"></div>
+    <div id="wordcount">Current/Total</div>
+    <!-- <div id="transcript">Hello </div> -->
+    
+    <div id="input"><button id="prev">Previous</button><input type="text" id="inputTxt"><button id="next">Next</button></div>
+    <div id="result" style="overflow:scroll; height: 100px"></div>
+</body>
+</html>
+
